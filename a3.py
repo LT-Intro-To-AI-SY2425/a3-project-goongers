@@ -11,6 +11,7 @@ BASE_URL = "http://www.omdbapi.com/"
 def fetch_movie_data(params: dict) -> dict:
     params['apikey'] = OMDB_API_KEY
     response = requests.get(BASE_URL, params=params)
+    print(response.json())
     return response.json() if response.status_code == 200 else None
 
 def title_by_year(matches: List[str]) -> List[str]:
